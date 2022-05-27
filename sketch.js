@@ -187,6 +187,30 @@ function draw()
 
 	///////////INTERACTION CODE//////////
 	//Put conditional statements to move the game character below here
+	if(isRight){
+		gameChar_x += 1;
+	}
+	if(isLeft){
+		gameChar_x -= 1;
+	}
+	if(isPlummeting && gameChar_y == floorPos_y){
+		gameChar_y = floorPos_y - 100;
+	}
+	if(isFalling == true){
+		if(gameChar_y == floorPos_y){
+			gameChar_y = -100;
+		}
+		else{
+			gameChar_y += 1;
+		}
+	}
+	if(gameChar_y < floorPos_y){ 
+		isFalling = true;
+	} 
+	else{
+		isFalling = false;
+	}
+	
 
 }
 
@@ -202,6 +226,14 @@ function keyPressed()
 	
 	if(keyCode == "37"){
 		isLeft = true;
+	}
+
+	if(keyCode == "38"){
+		isPlummeting = true;
+	}
+
+	if(keyCode == "40"){
+		isFalling = true;
 	}
 	
 
@@ -221,6 +253,14 @@ function keyReleased()
 	
 	if(keyCode == "37"){
 		isLeft = false;
+	}
+
+	if(keyCode == "38"){
+		isPlummeting = false;
+	}
+
+	if(keyCode == "40"){
+		isFalling = false;
 	}
 	
 
