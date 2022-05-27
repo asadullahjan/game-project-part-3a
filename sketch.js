@@ -197,11 +197,8 @@ function draw()
 		gameChar_y = floorPos_y - 100;
 	}
 	if(isFalling == true){
-		if(gameChar_y == floorPos_y){
-			gameChar_y = -100;
-		}
-		else{
-			gameChar_y += 1;
+		if(gameChar_y < floorPos_y){
+		gameChar_y += 1;
 		}
 	}
 	if(gameChar_y < floorPos_y){ 
@@ -232,9 +229,7 @@ function keyPressed()
 		isPlummeting = true;
 	}
 
-	if(keyCode == "40"){
-		isFalling = true;
-	}
+	
 	
 
 	//open up the console to see how these work
@@ -259,9 +254,7 @@ function keyReleased()
 		isPlummeting = false;
 	}
 
-	if(keyCode == "40"){
-		isFalling = false;
-	}
+	
 	
 
 
